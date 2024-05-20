@@ -51,7 +51,11 @@
 
 8. (optional, requires admin rights) Add MySQL bin directory to the system environment variables path: _C:\<MY_SQL_PATH>\bin_
 
+9. (optional, requires admin rights) Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
+
 ## Batch Files
+
+**NOTE:** change the _<MY_SQL_PATH>_ references.
 
 1. MySQL connection:
 
