@@ -37,7 +37,7 @@ public class BrokerController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BrokerResponse> insert(@PathVariable Long id, @Valid @RequestBody BrokerRequest request) {
+    public ResponseEntity<BrokerResponse> insert(@Valid @RequestBody BrokerRequest request) {
         var response = service.insert(request);
         var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri();
         return ResponseEntity.created(uri).body(response);

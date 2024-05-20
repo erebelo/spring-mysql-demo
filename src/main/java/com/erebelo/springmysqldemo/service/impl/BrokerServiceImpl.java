@@ -47,10 +47,6 @@ public class BrokerServiceImpl implements BrokerService {
             tempEntity.setId(entity.getId());
 
             entity = repository.save(tempEntity);
-
-            if (entity == null) {
-                throw new IllegalStateException("rolling back");
-            }
         }
 
         return mapper.entityToResponse(entity);
