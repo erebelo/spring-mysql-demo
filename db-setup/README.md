@@ -1,8 +1,6 @@
 # MySQL Server Setup
 
-1. Install MySQL Community Edition for Windows through ZIP archive:
-
-   Choose [Windows (x86, 64-bit), ZIP Archive](https://dev.mysql.com/downloads/mysql/) option
+1. Download and install [MySQL Community Server](https://dev.mysql.com/downloads/mysql/) for Windows by choosing the **Windows (x86, 64-bit), ZIP Archive** option
 
 2. Extract the ZIP archive
 
