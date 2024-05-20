@@ -16,3 +16,7 @@ REST API project developed in Java using Spring Boot 3 and MySQL database.
 ## Collection
 
 [Project Collection](https://github.com/erebelo/spring-mysql-demo/tree/main/collection)
+
+## DB Setup
+
+[MySQL Server Setup](https://github.com/erebelo/spring-mysql-demo/tree/main/db-setup)
