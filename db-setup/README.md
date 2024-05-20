@@ -1,14 +1,12 @@
 # MySQL Server Setup
 
-1. Download and install [MySQL Community Server](https://dev.mysql.com/downloads/mysql/) for Windows by choosing the **Windows (x86, 64-bit), ZIP Archive** option
+1. Download and extract [MySQL Community Server](https://dev.mysql.com/downloads/mysql/) for Windows by choosing the option **Windows (x86, 64-bit), ZIP Archive**
 
-2. Extract the ZIP archive
-
-3. Navigate to _C:\<MY_SQL_PATH>\bin_ directory using Git Bash terminal
+2. Navigate to _C:\<MY_SQL_PATH>\bin_ directory using Git Bash terminal
 
    **NOTE:** use this path while running the commands in the next steps.
 
-4. Create a MySQL Configuration File in _/bin_ with the content below:
+3. Create a MySQL Configuration File in _/bin_ with the content below:
 
    **NOTE:** change the _<MY_SQL_PATH>_ references.
 
@@ -31,25 +29,25 @@
    log-error=C:\<MY_SQL_PATH>\data\mysql_error.log
    ```
 
-5. Initialize the Data Directory by running the command:
+4. Initialize the Data Directory by running the command:
 
    `$ ./mysqld --initialize --console`
 
    **NOTE:** save the temporary password generated for root@localhost.
 
-6. Start MySQL Server (**KEEP THIS TERMINAL OPPENED**):
+5. Start MySQL Server (**KEEP THIS TERMINAL OPPENED**):
 
    `$ ./mysqld --console`
 
-7. Run the **C:\<MY_SQL_PATH>\bin\mysql_secure_installation.exe** by double clicking it:
+6. Run the **C:\<MY_SQL_PATH>\bin\mysql_secure_installation.exe** by double clicking it:
 
    - Enter the previously temporary password generated
    - Enter a new password
    - Follow the remaining steps
 
-8. (optional, requires admin rights) Add MySQL bin directory to the system environment variables path: _C:\<MY_SQL_PATH>\bin_
+7. (optional, requires admin rights) Add MySQL bin directory to the system environment variables path: _C:\<MY_SQL_PATH>\bin_
 
-9. (optional, requires admin rights) Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
+8. (optional, requires admin rights) Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 
 ## Batch Files
 
