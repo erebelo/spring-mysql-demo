@@ -1,6 +1,8 @@
 package com.erebelo.springmysqldemo.domain.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -34,7 +36,7 @@ public class BrokerEntity {
      Since BrokerEntity is the owner from the @OneToOne relationship, it needs to specify the @JoinColumn
      It can be unidirectional or bidirectional if the latter is specified in AddressEntity
      */
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private AddressEntity address;
 
