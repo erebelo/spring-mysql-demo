@@ -1,8 +1,8 @@
 package com.erebelo.springmysqldemo.service.impl;
 
 import com.erebelo.springmysqldemo.mapper.BrokerMapper;
-import com.erebelo.springmysqldemo.model.BrokerRequest;
-import com.erebelo.springmysqldemo.model.BrokerResponse;
+import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
+import com.erebelo.springmysqldemo.domain.response.BrokerResponse;
 import com.erebelo.springmysqldemo.repository.BrokerRepository;
 import com.erebelo.springmysqldemo.service.BrokerService;
 import lombok.RequiredArgsConstructor;

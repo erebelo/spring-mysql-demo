@@ -20,3 +20,7 @@ REST API project developed in Java using Spring Boot 3 and MySQL database.
 ## DB Setup
 
 [MySQL Server Setup](https://github.com/erebelo/spring-mysql-demo/tree/main/db-setup)
+
+## Diagram
+
+[Entity Relationship Diagram](https://github.com/erebelo/spring-mysql-demo/tree/main/diagram/Entity%20Relationship%20Diagram.PNG)

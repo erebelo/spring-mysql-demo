@@ -1,4 +1,4 @@
-package com.erebelo.springmysqldemo.model;
+package com.erebelo.springmysqldemo.domain.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;

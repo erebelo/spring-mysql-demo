@@ -1,7 +1,7 @@
 package com.erebelo.springmysqldemo.service;
 
-import com.erebelo.springmysqldemo.model.BrokerRequest;
-import com.erebelo.springmysqldemo.model.BrokerResponse;
+import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
+import com.erebelo.springmysqldemo.domain.response.BrokerResponse;
 
 import java.util.List;
 

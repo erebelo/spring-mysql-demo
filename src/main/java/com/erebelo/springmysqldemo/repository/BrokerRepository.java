@@ -1,6 +1,6 @@
 package com.erebelo.springmysqldemo.repository;
 
-import com.erebelo.springmysqldemo.model.BrokerEntity;
+import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
