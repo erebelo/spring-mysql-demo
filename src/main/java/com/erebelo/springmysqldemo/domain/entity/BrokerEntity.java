@@ -44,7 +44,7 @@ public class BrokerEntity {
      Since BrokerEntity is the owner from the @ManyToOne relationship, it needs to specify the @JoinColumn
      It can be unidirectional or bidirectional if the latter is specified in BrokerTypeEntity
      */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "broker_type_id")
     private BrokerTypeEntity brokerType;
 

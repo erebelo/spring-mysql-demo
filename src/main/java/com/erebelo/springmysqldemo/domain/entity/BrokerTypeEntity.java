@@ -1,6 +1,7 @@
 package com.erebelo.springmysqldemo.domain.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -10,7 +11,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -27,9 +29,9 @@ public class BrokerTypeEntity {
 
     /*
      Since BrokerTypeEntity is not the owner of the @OneToMany relationship, there is no need to specify the association below unless it is
-     bidirectional
+     bidirectional, as is this case
      */
-    @OneToMany(mappedBy = "brokerType")
-    private List<BrokerEntity> brokers;
+    @OneToMany(mappedBy = "brokerType", fetch = FetchType.LAZY)
+    private Set<BrokerEntity> brokers = new HashSet<>();
 
 }
