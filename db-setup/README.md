@@ -39,7 +39,7 @@
 
    `$ ./mysqld --console`
 
-6. Run the **C:\<MY_SQL_PATH>\bin\mysql_secure_installation.exe** by double clicking it:
+6. Run the **C:\<MY_SQL_PATH>\bin\mysql_secure_installation.exe** by double-clicking it:
 
    - Enter the previously temporary password generated
    - Enter a new password
@@ -98,3 +98,19 @@
 5. `$ SHOW DATABASES;`
 
 6. `$ EXIT;`
+
+# DBeaver Setup
+
+1. Download and extract [DBeaver Community](https://dbeaver.io/download/) for Windows by choosing the option **Windows (zip)**
+
+2. Navigate the menu: _Database -> Driver Manager -> Double click on **MySQL** -> Libraries (tab)_:
+
+   - Delete all files there
+   - Click on **Add File** button
+   - Select the **mysql-connector-j-8.3.0.jar** from your computer
+
+3. For connections to work correctly, choose and apply one of the approaches below:
+
+   - _New Database Connection -> MYSQL -> Driver properties (tab) -> Driver properties -> **allowPublicKeyRetrieval: true**_
+     a
+   - Right-click on your MySQL Database Connection: _Edit Connection -> Driver properties (tab) -> Driver properties -> **allowPublicKeyRetrieval: true**_
