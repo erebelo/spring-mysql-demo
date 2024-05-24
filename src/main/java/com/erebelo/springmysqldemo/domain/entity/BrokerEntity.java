@@ -16,7 +16,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -51,8 +52,8 @@ public class BrokerEntity {
     /*
      Since BrokerEntity is the owner from the @ManyToMany relationship, it needs to specify the @JoinTable
      */
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "broker_advisor", joinColumns = @JoinColumn(name = "broker_id"), inverseJoinColumns = @JoinColumn(name = "advisor_id"))
-    private List<AdvisorEntity> advisors;
+    private Set<AdvisorEntity> advisors = new HashSet<>();
 
 }
