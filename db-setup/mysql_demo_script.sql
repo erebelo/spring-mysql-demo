@@ -16,16 +16,16 @@ set @broker_type_id_2 = last_insert_id();
 
 -- Advisor
 insert into advisor (name, status) values ("Mia", "Active");
-set @adivisor_id_1 = last_insert_id();
+set @advisor_id_1 = last_insert_id();
 
 insert into advisor (name, status) values ("John", "Active");
-set @adivisor_id_2 = last_insert_id();
+set @advisor_id_2 = last_insert_id();
 
 insert into advisor (name, status) values ("Peter", "Active");
-set @adivisor_id_3 = last_insert_id();
+set @advisor_id_3 = last_insert_id();
 
 insert into advisor (name, status) values ("Joseph", "Active");
-set @adivisor_id_4 = last_insert_id();
+set @advisor_id_4 = last_insert_id();
 
 -- Broker
 insert into broker (name, description, address_id, broker_type_id) values ('Broker One', 'Description of Broker One', @address_id_1, @broker_type_id_1);
@@ -35,8 +35,8 @@ insert into broker (name, description, address_id, broker_type_id) values ('Brok
 set @broker_id_2 = last_insert_id();
 
 -- Broker-Advisor Association
-insert into broker_advisor (broker_id, advisor_id) values (@broker_id_1, @adivisor_id_1), (@broker_id_1, @adivisor_id_2);
-insert into broker_advisor (broker_id, advisor_id) values (@broker_id_2, @adivisor_id_3), (@broker_id_2, @adivisor_id_4);
+insert into broker_advisor (broker_id, advisor_id) values (@broker_id_1, @advisor_id_1), (@broker_id_1, @advisor_id_2);
+insert into broker_advisor (broker_id, advisor_id) values (@broker_id_2, @advisor_id_3), (@broker_id_2, @advisor_id_4);
 
 -- Broker-Broker Association
 insert into broker_broker (broker_id, associated_broker_id) values (@broker_id_1, @broker_id_2);

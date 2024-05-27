@@ -1,4 +1,4 @@
-# MySQL Server Setup
+## MySQL Server Setup
 
 1. Download and extract [MySQL Community Server](https://dev.mysql.com/downloads/mysql/) for Windows by choosing the option **Windows (x86, 64-bit), ZIP Archive**
 
@@ -101,7 +101,7 @@
 
 7. `$ EXIT;`
 
-# DBeaver Setup
+## DBeaver Setup
 
 1. Download and extract [DBeaver Community](https://dbeaver.io/download/) for Windows by choosing the option **Windows (zip)**
 
