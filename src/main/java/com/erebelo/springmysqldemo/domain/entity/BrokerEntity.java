@@ -53,7 +53,24 @@ public class BrokerEntity {
      Since BrokerEntity is the owner from the @ManyToMany relationship, it needs to specify the @JoinTable
      */
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "broker_advisor", joinColumns = @JoinColumn(name = "broker_id"), inverseJoinColumns = @JoinColumn(name = "advisor_id"))
+    @JoinTable(name = "broker_advisor",
+            joinColumns = @JoinColumn(name = "broker_id"),
+            inverseJoinColumns = @JoinColumn(name = "advisor_id"))
     private Set<AdvisorEntity> advisors = new HashSet<>();
+
+    /*
+     Self-referential ManyToMany relationship
+     */
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "broker_broker",
+            joinColumns = @JoinColumn(name = "broker_id"),
+            inverseJoinColumns = @JoinColumn(name = "associated_broker_id"))
+    private Set<BrokerEntity> associatedBrokers = new HashSet<>();
+
+    /*
+     Reverse side of the self-referential ManyToMany relationship to ensure bidirectionality
+     */
+    @ManyToMany(mappedBy = "associatedBrokers")
+    private Set<BrokerEntity> brokersAssociatedWithMe = new HashSet<>();
 
 }
