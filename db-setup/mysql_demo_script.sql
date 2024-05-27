@@ -34,10 +34,6 @@ set @broker_id_1 = last_insert_id();
 insert into broker (name, description, address_id, broker_type_id) values ('Broker Two', 'Description of Broker Two',  @address_id_2, @broker_type_id_2);
 set @broker_id_2 = last_insert_id();
 
--- Address Association
-update address set broker_id = @broker_id_1 WHERE id = @address_id_1;
-update address set broker_id = @broker_id_2 WHERE id = @address_id_2;
-
 -- Broker-Advisor Association
 insert into broker_advisor (broker_id, advisor_id) values (@broker_id_1, @adivisor_id_1), (@broker_id_1, @adivisor_id_2);
 insert into broker_advisor (broker_id, advisor_id) values (@broker_id_2, @adivisor_id_3), (@broker_id_2, @adivisor_id_4);

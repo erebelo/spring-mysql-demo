@@ -97,7 +97,9 @@
 
 5. `$ SHOW DATABASES;`
 
-6. `$ EXIT;`
+6. `$ SELECT user FROM mysql.user;`
+
+7. `$ EXIT;`
 
 # DBeaver Setup
 

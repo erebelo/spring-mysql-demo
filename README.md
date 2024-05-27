@@ -26,4 +26,4 @@ REST API project developed in Java using Spring Boot 3 and MySQL database.
 [Entity Relationship Diagram](https://github.com/erebelo/spring-mysql-demo/tree/main/db-setup/Entity%20Relationship%20Diagram.png)
 
 ## Script
-[MySQL POC Script](https://github.com/erebelo/spring-mysql-demo/tree/main/db-setup/mysql_poc-script.sql)
+[MySQL Demo Script](https://github.com/erebelo/spring-mysql-demo/tree/main/db-setup/mysql_demo_script.sql)
