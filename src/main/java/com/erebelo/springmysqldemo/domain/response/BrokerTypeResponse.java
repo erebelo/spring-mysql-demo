@@ -13,12 +13,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BrokerResponse {
+public class BrokerTypeResponse {
 
     private Long id;
     private String name;
-    private String description;
-    private AddressResponse address;
-    private BrokerTypeResponse brokerType;
 
 }

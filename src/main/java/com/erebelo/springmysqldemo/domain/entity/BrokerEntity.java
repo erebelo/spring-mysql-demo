@@ -38,7 +38,7 @@ public class BrokerEntity {
      Since BrokerEntity is the owner from the @OneToOne relationship, it needs to specify the @JoinColumn
      It can be unidirectional or bidirectional if the latter is specified in AddressEntity
      */
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private AddressEntity address;
 
@@ -46,7 +46,7 @@ public class BrokerEntity {
      Since BrokerEntity is the owner from the @ManyToOne relationship, it needs to specify the @JoinColumn
      It can be unidirectional or bidirectional if the latter is specified in BrokerTypeEntity
      */
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "broker_type_id")
     private BrokerTypeEntity brokerType;
 
