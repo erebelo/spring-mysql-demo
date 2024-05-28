@@ -1,11 +1,11 @@
 package com.erebelo.springmysqldemo.domain.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,9 +29,9 @@ public class AdvisorEntity {
     private String status;
 
     /*
-     Since AdvisorEntity is not the owner from the @ManyToMany relationship, it just needs to specify the mappedBy field
+     @ManyToMany relationship between AdvisorEntity and BrokerEntity
      */
-    @ManyToMany(mappedBy = "advisors", fetch = FetchType.LAZY)
-    private Set<BrokerEntity> brokers = new HashSet<>();
+    @OneToMany(mappedBy = "advisor", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<BrokerAdvisorEntity> advisorBrokers = new HashSet<>();
 
 }

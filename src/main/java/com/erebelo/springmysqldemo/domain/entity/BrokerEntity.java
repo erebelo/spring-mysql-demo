@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -50,13 +51,10 @@ public class BrokerEntity {
     private BrokerTypeEntity brokerType;
 
     /*
-     Since BrokerEntity is the owner from the @ManyToMany relationship, it needs to specify the @JoinTable
+     @ManyToMany relationship between BrokerEntity and AdvisorEntity
      */
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "broker_advisor",
-            joinColumns = @JoinColumn(name = "broker_id"),
-            inverseJoinColumns = @JoinColumn(name = "advisor_id"))
-    private Set<AdvisorEntity> advisors = new HashSet<>();
+    @OneToMany(mappedBy = "broker", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<BrokerAdvisorEntity> brokerAdvisors = new HashSet<>();
 
     /*
      Self-referential ManyToMany relationship
