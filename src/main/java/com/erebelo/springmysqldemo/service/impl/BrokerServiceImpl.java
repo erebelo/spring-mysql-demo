@@ -1,8 +1,8 @@
 package com.erebelo.springmysqldemo.service.impl;
 
-import com.erebelo.springmysqldemo.mapper.BrokerMapper;
 import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
 import com.erebelo.springmysqldemo.domain.response.BrokerResponse;
+import com.erebelo.springmysqldemo.mapper.BrokerMapper;
 import com.erebelo.springmysqldemo.repository.BrokerRepository;
 import com.erebelo.springmysqldemo.service.BrokerService;
 import lombok.RequiredArgsConstructor;
@@ -19,12 +19,14 @@ public class BrokerServiceImpl implements BrokerService {
     private final BrokerMapper mapper;
 
     @Override
+    @Transactional(readOnly = true)
     public List<BrokerResponse> findAll() {
         var entityList = repository.findAll();
         return mapper.entityToResponse(entityList);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public BrokerResponse findById(Long id) {
         var entity = repository.findById(id).orElse(null);
         return mapper.entityToResponse(entity);

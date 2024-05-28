@@ -14,13 +14,15 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -38,7 +40,7 @@ public class BrokerEntity {
      Since BrokerEntity is the owner from the @OneToOne relationship, it needs to specify the @JoinColumn
      It can be unidirectional or bidirectional if the latter is specified in AddressEntity
      */
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "address_id")
     private AddressEntity address;
 
@@ -46,7 +48,7 @@ public class BrokerEntity {
      Since BrokerEntity is the owner from the @ManyToOne relationship, it needs to specify the @JoinColumn
      It can be unidirectional or bidirectional if the latter is specified in BrokerTypeEntity
      */
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "broker_type_id")
     private BrokerTypeEntity brokerType;
 
@@ -68,7 +70,7 @@ public class BrokerEntity {
     /*
      Reverse side of the self-referential ManyToMany relationship to ensure bidirectionality
      */
-    @ManyToMany(mappedBy = "associatedBrokers")
+    @ManyToMany(mappedBy = "associatedBrokers", fetch = FetchType.LAZY)
     private Set<BrokerEntity> brokersAssociatedWithMe = new HashSet<>();
 
 }
