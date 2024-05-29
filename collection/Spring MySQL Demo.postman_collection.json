@@ -82,7 +82,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Test 1\",\r\n    \"description\": \"Test 1 description\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Broker One\",\r\n    \"description\": \"Description of Broker One\",\r\n    \"address\": {\r\n        \"city\": \"New York\",\r\n        \"country\": \"US\",\r\n        \"name\": \"Street 9th\",\r\n        \"state\": \"NY\",\r\n        \"zipCode\": \"12345\"\r\n    },\r\n    \"brokerTypeId\": 1,\r\n    \"relationships\": [\r\n        {\r\n            \"status\": \"Active\",\r\n            \"startDate\": \"2023-01-30\",\r\n            \"endDate\": \"2024-12-31\",\r\n            \"advisorId\": 1\r\n        },\r\n        {\r\n            \"status\": \"Pending\",\r\n            \"startDate\": \"2024-03-31\",\r\n            \"endDate\": \"2025-10-20\",\r\n            \"advisorId\": 2\r\n        }\r\n    ],\r\n    \"associatedBrokerIds\": [\r\n        2\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -105,7 +105,7 @@
 					"response": []
 				},
 				{
-					"name": "PUT Broker",
+					"name": "PUT Broker by Id",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -117,7 +117,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Test 2\",\r\n    \"description\": \"Test 2 description\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Broker Two\",\r\n    \"description\": \"Description of Broker Two\",\r\n    \"address\": {\r\n        \"city\": \"Miami\",\r\n        \"country\": \"US\",\r\n        \"name\": \"Avenue 53th\",\r\n        \"state\": \"FL\",\r\n        \"zipCode\": \"456789\"\r\n    },\r\n    \"brokerTypeId\": 2,\r\n    \"relationships\": [\r\n        {\r\n            \"status\": \"Terminated\",\r\n            \"startDate\": \"2020-01-30\",\r\n            \"endDate\": \"2020-12-31\",\r\n            \"advisorId\": 3\r\n        }\r\n    ],\r\n    \"associatedBrokerIds\": [\r\n        1\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

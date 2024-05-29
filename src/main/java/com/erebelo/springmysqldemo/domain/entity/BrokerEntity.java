@@ -55,12 +55,14 @@ public class BrokerEntity {
     /*
      @ManyToMany relationship between BrokerEntity and AdvisorEntity
      */
+    @Builder.Default // Initialize collections
     @OneToMany(mappedBy = "broker", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<BrokerAdvisorEntity> brokerAdvisors = new HashSet<>();
 
     /*
      Self-referential ManyToMany relationship
      */
+    @Builder.Default // Initialize collections
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "broker_broker",
             joinColumns = @JoinColumn(name = "broker_id"),
@@ -70,6 +72,7 @@ public class BrokerEntity {
     /*
      Reverse side of the self-referential ManyToMany relationship to ensure bidirectionality
      */
+    @Builder.Default // Initialize collections
     @ManyToMany(mappedBy = "associatedBrokers", fetch = FetchType.LAZY)
     private Set<BrokerEntity> brokersAssociatedWithMe = new HashSet<>();
 

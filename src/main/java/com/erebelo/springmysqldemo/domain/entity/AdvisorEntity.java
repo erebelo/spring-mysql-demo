@@ -33,6 +33,7 @@ public class AdvisorEntity {
     /*
      @ManyToMany relationship between AdvisorEntity and BrokerEntity
      */
+    @Builder.Default // Initialize collections
     @OneToMany(mappedBy = "advisor", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<BrokerAdvisorEntity> advisorBrokers = new HashSet<>();
 

@@ -9,9 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-import java.util.Set;
-
 @Getter
 @Setter
 @ToString
@@ -20,13 +17,12 @@ import java.util.Set;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BrokerRequest {
+public class AddressRequest {
 
     private String name;
-    private String description;
-    private AddressRequest address;
-    private Long brokerTypeId;
-    private List<RelationshipRequest> relationships;
-    private Set<Long> associatedBrokerIds;
+    private String city;
+    private String state;
+    private String country;
+    private String zipCode;
 
 }

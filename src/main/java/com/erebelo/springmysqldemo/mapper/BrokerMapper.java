@@ -6,6 +6,7 @@ import com.erebelo.springmysqldemo.domain.entity.BrokerAdvisorEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerTypeEntity;
 import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
+import com.erebelo.springmysqldemo.domain.request.RelationshipRequest;
 import com.erebelo.springmysqldemo.domain.response.AddressResponse;
 import com.erebelo.springmysqldemo.domain.response.AdvisorResponse;
 import com.erebelo.springmysqldemo.domain.response.BrokerResponse;
@@ -43,6 +44,8 @@ public interface BrokerMapper {
     AdvisorResponse advisorEntityToAdvisorResponse(AdvisorEntity entity);
 
     BrokerEntity requestToEntity(BrokerRequest request);
+
+    BrokerAdvisorEntity relationshipRequestToBrokerAdvisorEntity(RelationshipRequest request);
 
     default List<BrokerResponse> entityListToResponseList(List<BrokerEntity> entityList) {
         return entityList.stream()

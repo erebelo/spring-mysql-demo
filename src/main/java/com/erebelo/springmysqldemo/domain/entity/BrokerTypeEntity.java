@@ -33,6 +33,7 @@ public class BrokerTypeEntity {
      Since BrokerTypeEntity is not the owner of the @OneToMany relationship, there is no need to specify the association below unless it is
      bidirectional, as is this case
      */
+    @Builder.Default // Initialize collections
     @OneToMany(mappedBy = "brokerType", fetch = FetchType.LAZY)
     private Set<BrokerEntity> brokers = new HashSet<>();
 
