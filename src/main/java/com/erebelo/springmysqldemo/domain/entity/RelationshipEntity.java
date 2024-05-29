@@ -18,8 +18,8 @@ import java.time.LocalDate;
 public class RelationshipEntity {
 
     // Active, Pending, Terminated
-    private String relationshipStatus;
-    private LocalDate relationshipStartDate;
-    private LocalDate relationshipEndDate;
+    private String status;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
 }

@@ -35,11 +35,11 @@ insert into broker (name, description, address_id, broker_type_id) values ('Brok
 set @broker_id_2 = last_insert_id();
 
 -- Broker-Advisor Association
-insert into broker_advisor (broker_id, advisor_id, relationship_status, relationship_start_date, relationship_end_date)
+insert into broker_advisor (broker_id, advisor_id, status, start_date, end_date)
 values (@broker_id_1, @advisor_id_1, "Active", "2023-01-30", "2024-12-31"),
 (@broker_id_1, @advisor_id_2, "Pending", "2024-03-31", "2025-10-20");
 
-insert into broker_advisor (broker_id, advisor_id, relationship_status, relationship_start_date, relationship_end_date)
+insert into broker_advisor (broker_id, advisor_id, status, start_date, end_date)
 values (@broker_id_2, @advisor_id_3, "Terminated", "2022-09-30", "2024-01-01"),
 (@broker_id_2, @advisor_id_4, "Active", "2021-06-10", "2025-12-12");
 

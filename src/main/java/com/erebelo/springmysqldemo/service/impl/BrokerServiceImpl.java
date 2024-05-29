@@ -22,7 +22,7 @@ public class BrokerServiceImpl implements BrokerService {
     @Transactional(readOnly = true)
     public List<BrokerResponse> findAll() {
         var entityList = repository.findAll();
-        return mapper.entityToResponse(entityList);
+        return mapper.entityListToResponseList(entityList);
     }
 
     @Override

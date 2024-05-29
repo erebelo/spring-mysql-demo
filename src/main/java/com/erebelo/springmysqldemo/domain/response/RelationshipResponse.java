@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -19,14 +19,12 @@ import java.util.List;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BrokerResponse {
+public class RelationshipResponse {
 
     private Long id;
-    private String name;
-    private String description;
-    private AddressResponse address;
-    private BrokerTypeResponse brokerType;
-    private List<RelationshipResponse> relationships;
-    private List<AssociatedBrokerResponse> associatedBrokers;
+    private String status;
+    private LocalDate startDate;
+    private LocalDate endDate;
+    private AdvisorResponse advisor;
 
 }
