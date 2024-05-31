@@ -24,39 +24,39 @@ import static org.mapstruct.ReportingPolicy.WARN;
 @Mapper(componentModel = "spring", unmappedTargetPolicy = WARN)
 public interface BrokerMapper {
 
+    default List<BrokerResponse> entityListToResponseList(List<BrokerEntity> entityList) {
+        return entityList.stream()
+                .map(this::lazyEntityToResponse)
+                .toList();
+    }
+
     /*
      Specify the properties (relationships and associatedBrokers) to be ignored and not mapped,
      leveraging the lazy fetch strategy and saving on additional queries
      */
     @Mapping(target = "relationships", ignore = true)
     @Mapping(target = "associatedBrokers", ignore = true)
-    BrokerResponse lazyFetchMap(BrokerEntity entity);
+    BrokerResponse lazyEntityToResponse(BrokerEntity entity);
 
-    @Mapping(source = "brokerAdvisors", target = "relationships", qualifiedByName = "mapBrokerAdvisorEntitySetToRelationshipResponseList")
+    @Mapping(source = "brokerAdvisors", target = "relationships", qualifiedByName = "mapBrokerAdvisorsToRelationships")
     BrokerResponse entityToResponse(BrokerEntity entity);
 
-    BrokerAddressResponse addressEntityToAddressResponse(AddressEntity entity);
+    BrokerAddressResponse mapAddressEntityToBrokerAddressResponse(AddressEntity entity);
 
-    BrokerTypeResponse brokerTypeEntityToBrokerTypeResponse(BrokerTypeEntity entity);
+    BrokerTypeResponse mapBrokerTypeEntityToBrokerTypeResponse(BrokerTypeEntity entity);
 
-    BrokerRelationshipResponse brokerAdvisorEntityToRelationshipResponse(BrokerAdvisorEntity entity);
+    BrokerRelationshipResponse mapBrokerAdvisorEntityToBrokerRelationshipResponse(BrokerAdvisorEntity entity);
 
-    BrokerAdvisorResponse advisorEntityToAdvisorResponse(AdvisorEntity entity);
+    BrokerAdvisorResponse mapAdvisorEntityToBrokerAdvisorResponse(AdvisorEntity entity);
 
     BrokerEntity requestToEntity(BrokerRequest request);
 
-    BrokerAdvisorEntity relationshipRequestToBrokerAdvisorEntity(RelationshipRequest request);
+    BrokerAdvisorEntity mapRelationshipRequestToBrokerAdvisorEntity(RelationshipRequest request);
 
-    default List<BrokerResponse> entityListToResponseList(List<BrokerEntity> entityList) {
-        return entityList.stream()
-                .map(this::lazyFetchMap)
-                .toList();
-    }
-
-    @Named("mapBrokerAdvisorEntitySetToRelationshipResponseList")
-    default List<BrokerRelationshipResponse> mapBrokerAdvisorEntitySetToRelationshipResponseList(Set<BrokerAdvisorEntity> brokerAdvisors) {
+    @Named("mapBrokerAdvisorsToRelationships")
+    default List<BrokerRelationshipResponse> mapBrokerAdvisorsToRelationships(Set<BrokerAdvisorEntity> brokerAdvisors) {
         return brokerAdvisors.stream()
-                .map(this::brokerAdvisorEntityToRelationshipResponse)
+                .map(this::mapBrokerAdvisorEntityToBrokerRelationshipResponse)
                 .toList();
     }
 }

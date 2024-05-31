@@ -93,7 +93,7 @@ public class BrokerServiceImpl implements BrokerService {
 
         // Handle BrokerAdvisor
         for (RelationshipRequest relationshipRequest : request.getRelationships()) {
-            var brokerAdvisorEntity = mapper.relationshipRequestToBrokerAdvisorEntity(relationshipRequest);
+            var brokerAdvisorEntity = mapper.mapRelationshipRequestToBrokerAdvisorEntity(relationshipRequest);
             brokerAdvisorEntity.setAdvisor(advisorRepository.findById(relationshipRequest.getAdvisorId()).orElse(null));
             brokerAdvisorEntity.setBroker(brokerEntity);
 
