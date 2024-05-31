@@ -1,7 +1,7 @@
 package com.erebelo.springmysqldemo.controller;
 
 import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
-import com.erebelo.springmysqldemo.domain.response.BrokerResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerResponse;
 import com.erebelo.springmysqldemo.service.BrokerService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

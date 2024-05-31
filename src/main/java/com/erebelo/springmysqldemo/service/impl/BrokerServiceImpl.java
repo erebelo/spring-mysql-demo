@@ -4,7 +4,7 @@ import com.erebelo.springmysqldemo.domain.entity.AddressEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
 import com.erebelo.springmysqldemo.domain.request.RelationshipRequest;
-import com.erebelo.springmysqldemo.domain.response.BrokerResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerResponse;
 import com.erebelo.springmysqldemo.mapper.BrokerMapper;
 import com.erebelo.springmysqldemo.repository.AddressRepository;
 import com.erebelo.springmysqldemo.repository.AdvisorRepository;

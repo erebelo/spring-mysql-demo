@@ -1,0 +1,104 @@
+//package com.erebelo.springmysqldemo.service.impl;
+//
+//import com.erebelo.springmysqldemo.domain.entity.AddressEntity;
+//import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
+//import com.erebelo.springmysqldemo.domain.request.AdvisorRequest;
+//import com.erebelo.springmysqldemo.domain.request.RelationshipRequest;
+//import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorResponse;
+//import com.erebelo.springmysqldemo.mapper.AdvisorMapper;
+//import com.erebelo.springmysqldemo.repository.AdvisorRepository;
+//import com.erebelo.springmysqldemo.service.AdvisorService;
+//import lombok.RequiredArgsConstructor;
+//import org.springframework.stereotype.Service;
+//import org.springframework.transaction.annotation.Transactional;
+//
+//import java.util.List;
+//
+//@Service
+//@RequiredArgsConstructor
+//public class AdvisorServiceImpl implements AdvisorService {
+//
+//    private final AdvisorRepository repository;
+//    private final AdvisorMapper mapper;
+//
+//    @Override
+//    @Transactional(readOnly = true)
+//    public List<AdvisorResponse> findAll() {
+//        var entityList = repository.findAll();
+//        return mapper.entityListToResponseList(entityList);
+//    }
+//
+//    @Override
+//    @Transactional(readOnly = true)
+//    public AdvisorResponse findById(Long id) {
+//        var entity = repository.findById(id).orElse(null);
+//        return mapper.entityToResponse(entity);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public AdvisorResponse insert(AdvisorRequest request) {
+//        var entity = buildEntityObject(request);
+//        entity = repository.save(entity);
+//
+//        return mapper.entityToResponse(entity);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public AdvisorResponse update(Long id, AdvisorRequest request) {
+//        var entity = repository.findById(id).orElse(null);
+//
+//        if (entity != null) {
+//            var updatedEntity = buildEntityObject(request);
+//            updatedEntity.setId(id);
+//
+//            AddressEntity addressToDelete = null;
+//            if (entity.getAddress() != null) {
+//                if (updatedEntity.getAddress() != null) {
+//                    updatedEntity.getAddress().setId(entity.getAddress().getId());
+//                } else {
+//                    addressToDelete = entity.getAddress();
+//                }
+//            }
+//
+//            entity = repository.save(updatedEntity);
+//
+//            // Unused address cleanup
+//            if (addressToDelete != null) {
+//                addressRepository.delete(addressToDelete);
+//            }
+//        }
+//
+//        return mapper.entityToResponse(entity);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void delete(Long id) {
+//        repository.deleteById(id);
+//    }
+//
+//    private BrokerEntity buildEntityObject(AdvisorRequest request) {
+//        var brokerEntity = mapper.requestToEntity(request);
+//
+//        // Handle BrokerType
+//        brokerEntity.setBrokerType(brokerTypeRepository.findById(request.getBrokerTypeId()).orElse(null));
+//
+//        // Handle BrokerAdvisor
+//        for (RelationshipRequest relationshipRequest : request.getRelationships()) {
+//            var brokerAdvisorEntity = mapper.relationshipRequestToBrokerAdvisorEntity(relationshipRequest);
+//            brokerAdvisorEntity.setAdvisor(advisorRepository.findById(relationshipRequest.getAdvisorId()).orElse(null));
+//            brokerAdvisorEntity.setBroker(brokerEntity);
+//
+//            brokerEntity.getBrokerAdvisors().add(brokerAdvisorEntity);
+//        }
+//
+//        // Handle AssociatedBrokers
+//        for (Long associatedBrokerId : request.getAssociatedBrokerIds()) {
+//            brokerEntity.getAssociatedBrokers().add(repository.findById(associatedBrokerId).orElse(null));
+//        }
+//
+//        return brokerEntity;
+//    }
+//}

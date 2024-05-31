@@ -1,4 +1,4 @@
-package com.erebelo.springmysqldemo.domain.response;
+package com.erebelo.springmysqldemo.domain.response.broker;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -19,12 +19,12 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RelationshipResponse {
+public class BrokerRelationshipResponse {
 
     private Long id;
     private String status;
     private LocalDate startDate;
     private LocalDate endDate;
-    private AdvisorResponse advisor;
+    private BrokerAdvisorResponse advisor;
 
 }

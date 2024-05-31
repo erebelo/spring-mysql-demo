@@ -7,11 +7,11 @@ import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerTypeEntity;
 import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
 import com.erebelo.springmysqldemo.domain.request.RelationshipRequest;
-import com.erebelo.springmysqldemo.domain.response.AddressResponse;
-import com.erebelo.springmysqldemo.domain.response.AdvisorResponse;
-import com.erebelo.springmysqldemo.domain.response.BrokerResponse;
-import com.erebelo.springmysqldemo.domain.response.BrokerTypeResponse;
-import com.erebelo.springmysqldemo.domain.response.RelationshipResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerAddressResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerAdvisorResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerRelationshipResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerTypeResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -35,13 +35,13 @@ public interface BrokerMapper {
     @Mapping(source = "brokerAdvisors", target = "relationships", qualifiedByName = "mapBrokerAdvisorEntitySetToRelationshipResponseList")
     BrokerResponse entityToResponse(BrokerEntity entity);
 
-    AddressResponse addressEntityToAddressResponse(AddressEntity entity);
+    BrokerAddressResponse addressEntityToAddressResponse(AddressEntity entity);
 
     BrokerTypeResponse brokerTypeEntityToBrokerTypeResponse(BrokerTypeEntity entity);
 
-    RelationshipResponse brokerAdvisorEntityToRelationshipResponse(BrokerAdvisorEntity entity);
+    BrokerRelationshipResponse brokerAdvisorEntityToRelationshipResponse(BrokerAdvisorEntity entity);
 
-    AdvisorResponse advisorEntityToAdvisorResponse(AdvisorEntity entity);
+    BrokerAdvisorResponse advisorEntityToAdvisorResponse(AdvisorEntity entity);
 
     BrokerEntity requestToEntity(BrokerRequest request);
 
@@ -54,7 +54,7 @@ public interface BrokerMapper {
     }
 
     @Named("mapBrokerAdvisorEntitySetToRelationshipResponseList")
-    default List<RelationshipResponse> mapBrokerAdvisorEntitySetToRelationshipResponseList(Set<BrokerAdvisorEntity> brokerAdvisors) {
+    default List<BrokerRelationshipResponse> mapBrokerAdvisorEntitySetToRelationshipResponseList(Set<BrokerAdvisorEntity> brokerAdvisors) {
         return brokerAdvisors.stream()
                 .map(this::brokerAdvisorEntityToRelationshipResponse)
                 .toList();

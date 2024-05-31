@@ -28,6 +28,8 @@ public class AdvisorEntity {
     private Long id;
 
     private String name;
+
+    // Active, Pending, Terminated
     private String status;
 
     /*

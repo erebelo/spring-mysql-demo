@@ -1,4 +1,4 @@
-package com.erebelo.springmysqldemo.domain.response;
+package com.erebelo.springmysqldemo.domain.response.advisor;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -19,14 +19,11 @@ import java.util.List;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BrokerResponse {
+public class AdvisorResponse {
 
     private Long id;
     private String name;
-    private String description;
-    private AddressResponse address;
-    private BrokerTypeResponse brokerType;
-    private List<RelationshipResponse> relationships;
-    private List<AssociatedBrokerResponse> associatedBrokers;
+    private String status;
+    private List<AdvisorRelationshipResponse> relationships;
 
 }

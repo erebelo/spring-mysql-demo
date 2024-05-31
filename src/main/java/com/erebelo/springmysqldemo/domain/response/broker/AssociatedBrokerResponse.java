@@ -1,4 +1,4 @@
-package com.erebelo.springmysqldemo.domain.response;
+package com.erebelo.springmysqldemo.domain.response.broker;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,13 +17,10 @@ import lombok.ToString;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AddressResponse {
+public class AssociatedBrokerResponse {
 
     private Long id;
     private String name;
-    private String city;
-    private String state;
-    private String country;
-    private String zipCode;
+    private String description;
 
 }

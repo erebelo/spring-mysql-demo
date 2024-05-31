@@ -1,4 +1,4 @@
-package com.erebelo.springmysqldemo.domain.response;
+package com.erebelo.springmysqldemo.domain.response.broker;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,10 +17,9 @@ import lombok.ToString;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AdvisorResponse {
+public class BrokerTypeResponse {
 
     private Long id;
     private String name;
-    private String status;
 
 }
