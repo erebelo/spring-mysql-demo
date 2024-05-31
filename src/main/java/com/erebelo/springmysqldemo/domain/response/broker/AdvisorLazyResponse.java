@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.List;
-
 @Getter
 @Setter
 @ToString
@@ -19,14 +17,10 @@ import java.util.List;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BrokerResponse {
+public class AdvisorLazyResponse {
 
     private Long id;
     private String name;
-    private String description;
-    private AddressResponse address;
-    private BrokerTypeLazyResponse brokerType;
-    private List<BrokerRelationshipResponse> relationships;
-    private List<AssociatedBrokerResponse> associatedBrokers;
+    private String status;
 
 }

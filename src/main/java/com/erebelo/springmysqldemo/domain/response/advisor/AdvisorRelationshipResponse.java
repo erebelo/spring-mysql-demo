@@ -25,6 +25,6 @@ public class AdvisorRelationshipResponse {
     private String status;
     private LocalDate startDate;
     private LocalDate endDate;
-    private AdvisorBrokerResponse broker;
+    private BrokerLazyResponse broker;
 
 }

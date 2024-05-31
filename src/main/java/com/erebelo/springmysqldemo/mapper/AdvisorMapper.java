@@ -4,9 +4,9 @@ import com.erebelo.springmysqldemo.domain.entity.AdvisorEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerAdvisorEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.request.AdvisorRequest;
-import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorBrokerResponse;
 import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorRelationshipResponse;
 import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorResponse;
+import com.erebelo.springmysqldemo.domain.response.advisor.BrokerLazyResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
@@ -23,24 +23,23 @@ public interface AdvisorMapper {
         return entityList.stream().map(this::lazyEntityToResponse).toList();
     }
 
-    /*
-     Specify the properties (relationships) to be ignored and not mapped,
-     leveraging the lazy fetch strategy and saving on additional queries
-     */
+    // Lazy fetch strategy that saves additional queries by ignoring/not mapping properties
     @Mapping(target = "relationships", ignore = true)
     AdvisorResponse lazyEntityToResponse(AdvisorEntity entity);
 
-    @Mapping(source = "advisorBrokers", target = "relationships", qualifiedByName = "mapAdvisorBrokersToRelationships")
+    @Mapping(target = "relationships", source = "advisorBrokers", qualifiedByName = "mapSetAdvisorBrokersToListRelationships")
     AdvisorResponse entityToResponse(AdvisorEntity entity);
 
     AdvisorRelationshipResponse mapBrokerAdvisorEntityToAdvisorRelationshipResponse(BrokerAdvisorEntity entity);
 
-    AdvisorBrokerResponse mapBrokerEntityToAdvisorBrokerResponse(BrokerEntity entity);
+    BrokerLazyResponse mapBrokerEntityToBrokerLazyResponse(BrokerEntity entity);
 
     AdvisorEntity requestToEntity(AdvisorRequest request);
 
-    @Named("mapAdvisorBrokersToRelationships")
-    default List<AdvisorRelationshipResponse> mapAdvisorBrokersToRelationships(Set<BrokerAdvisorEntity> advisorBrokers) {
-        return advisorBrokers.stream().map(this::mapBrokerAdvisorEntityToAdvisorRelationshipResponse).toList();
+    @Named("mapSetAdvisorBrokersToListRelationships")
+    default List<AdvisorRelationshipResponse> mapSetAdvisorBrokersToListRelationships(Set<BrokerAdvisorEntity> advisorBrokers) {
+        return advisorBrokers.stream()
+                .map(this::mapBrokerAdvisorEntityToAdvisorRelationshipResponse)
+                .toList();
     }
 }
