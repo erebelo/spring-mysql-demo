@@ -1,4 +1,4 @@
-package com.erebelo.springmysqldemo.domain.response.brokertype;
+package com.erebelo.springmysqldemo.domain.response.address;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -17,10 +17,13 @@ import lombok.ToString;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class BrokerLazyResponse {
+public class AddressResponse {
 
     private Long id;
     private String name;
-    private String description;
+    private String city;
+    private String state;
+    private String country;
+    private String zipCode;
 
 }

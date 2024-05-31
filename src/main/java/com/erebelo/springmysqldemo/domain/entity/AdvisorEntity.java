@@ -1,6 +1,5 @@
 package com.erebelo.springmysqldemo.domain.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -34,7 +33,6 @@ public class AdvisorEntity {
 
     @NotBlank(message = "name is mandatory")
     @Size(min = 2, max = 30, message = "name must be between 2 to 30 characters")
-    @Column(name = "name", unique = true)
     private String name;
 
     // Active, Pending, Terminated

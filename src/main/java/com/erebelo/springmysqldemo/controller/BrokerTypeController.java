@@ -1,8 +1,8 @@
 package com.erebelo.springmysqldemo.controller;
 
-import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
-import com.erebelo.springmysqldemo.domain.response.broker.BrokerResponse;
-import com.erebelo.springmysqldemo.service.BrokerService;
+import com.erebelo.springmysqldemo.domain.request.BrokerTypeRequest;
+import com.erebelo.springmysqldemo.domain.response.brokertype.BrokerTypeResponse;
+import com.erebelo.springmysqldemo.service.BrokerTypeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -24,27 +24,27 @@ import java.util.List;
 @RequiredArgsConstructor
 public class BrokerTypeController {
 
-    private final BrokerService service;
+    private final BrokerTypeService service;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<BrokerResponse>> findAll() {
+    public ResponseEntity<List<BrokerTypeResponse>> findAll() {
         return ResponseEntity.ok(service.findAll());
     }
 
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BrokerResponse> findById(@PathVariable Long id) {
+    public ResponseEntity<BrokerTypeResponse> findById(@PathVariable Long id) {
         return ResponseEntity.ok(service.findById(id));
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BrokerResponse> insert(@Valid @RequestBody BrokerRequest request) {
+    public ResponseEntity<BrokerTypeResponse> insert(@Valid @RequestBody BrokerTypeRequest request) {
         var response = service.insert(request);
         var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri();
         return ResponseEntity.created(uri).body(response);
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BrokerResponse> update(@PathVariable Long id, @Valid @RequestBody BrokerRequest request) {
+    public ResponseEntity<BrokerTypeResponse> update(@PathVariable Long id, @Valid @RequestBody BrokerTypeRequest request) {
         return ResponseEntity.ok(service.update(id, request));
     }
 

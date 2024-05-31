@@ -6,7 +6,7 @@ import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.request.AdvisorRequest;
 import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorRelationshipResponse;
 import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorResponse;
-import com.erebelo.springmysqldemo.domain.response.advisor.BrokerLazyResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerLazyResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;

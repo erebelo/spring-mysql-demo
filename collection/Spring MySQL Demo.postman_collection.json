@@ -214,7 +214,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Ja\",\r\n    \"status\": \"Active\"\r\n}",
+							"raw": "{\r\n    \"name\": \"James\",\r\n    \"status\": \"Active\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -287,6 +287,138 @@
 							"path": [
 								"spring-mysql-demo",
 								"advisor",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Broker Type",
+			"item": [
+				{
+					"name": "GET All Broker Types",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/spring-mysql-demo/broker-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spring-mysql-demo",
+								"broker-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Broker Type by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/spring-mysql-demo/broker-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spring-mysql-demo",
+								"broker-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Broker Type",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"ABC\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/spring-mysql-demo/broker-type",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spring-mysql-demo",
+								"broker-type"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Broker Type by Id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-UserId",
+								"value": "12345",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"DEF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/spring-mysql-demo/broker-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spring-mysql-demo",
+								"broker-type",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Broker Type by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/spring-mysql-demo/broker-type/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spring-mysql-demo",
+								"broker-type",
 								"1"
 							]
 						}

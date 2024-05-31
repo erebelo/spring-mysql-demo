@@ -1,5 +1,6 @@
 package com.erebelo.springmysqldemo.domain.response.brokertype;
 
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerLazyResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;

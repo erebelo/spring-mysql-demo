@@ -3,7 +3,7 @@ package com.erebelo.springmysqldemo.mapper;
 import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerTypeEntity;
 import com.erebelo.springmysqldemo.domain.request.BrokerTypeRequest;
-import com.erebelo.springmysqldemo.domain.response.advisor.BrokerLazyResponse;
+import com.erebelo.springmysqldemo.domain.response.broker.BrokerLazyResponse;
 import com.erebelo.springmysqldemo.domain.response.brokertype.BrokerTypeResponse;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
