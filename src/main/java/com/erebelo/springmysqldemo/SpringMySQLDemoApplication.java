@@ -6,9 +6,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @EnableTransactionManagement
-public class SpringMysqlDemoApplication {
+public class SpringMySQLDemoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringMysqlDemoApplication.class, args);
+        SpringApplication.run(SpringMySQLDemoApplication.class, args);
     }
 }

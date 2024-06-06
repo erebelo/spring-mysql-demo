@@ -86,7 +86,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${project.parent.version}</version>
                 <configuration>
-                    <mainClass>com.erebelo.springmysqldemo.SpringMysqlDemoApplication</mainClass>
+                    <mainClass>com.erebelo.springmysqldemo.SpringMySQLDemoApplication</mainClass>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
