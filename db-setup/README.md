@@ -2,7 +2,7 @@
 
 1. Download and extract [MySQL Community Server](https://dev.mysql.com/downloads/mysql/) for Windows by choosing the option **Windows (x86, 64-bit), ZIP Archive**
 
-2. Navigate to _C:\<MY_SQL_PATH>\bin_ directory using Git Bash terminal
+2. Navigate to _C:\\<MY_SQL_PATH>\bin_ directory using Git Bash terminal
 
    **NOTE:** use this path while running the commands in the next steps.
 
@@ -45,7 +45,7 @@
    - Enter a new password
    - Follow the remaining steps
 
-7. (optional, requires admin rights) Add MySQL bin directory to the system environment variables path: _C:\<MY_SQL_PATH>\bin_
+7. (optional, requires admin rights) Add MySQL bin directory to the system environment variables path: _C:\\<MY_SQL_PATH>\bin_
 
 8. (optional, requires admin rights) Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 
