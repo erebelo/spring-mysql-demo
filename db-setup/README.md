@@ -39,7 +39,7 @@
 
    `$ ./mysqld --console`
 
-6. Run the **C:\<MY_SQL_PATH>\bin\mysql_secure_installation.exe** by double-clicking it:
+6. Run the **C:\\<MY_SQL_PATH>\bin\mysql_secure_installation.exe** by double-clicking it:
 
    - Enter the previously temporary password generated
    - Enter a new password
