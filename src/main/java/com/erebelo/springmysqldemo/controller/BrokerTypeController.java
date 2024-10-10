@@ -4,6 +4,7 @@ import com.erebelo.springmysqldemo.domain.request.BrokerTypeRequest;
 import com.erebelo.springmysqldemo.domain.response.brokertype.BrokerTypeResponse;
 import com.erebelo.springmysqldemo.service.BrokerTypeService;
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("broker-type")
@@ -46,12 +45,14 @@ public class BrokerTypeController {
     public ResponseEntity<BrokerTypeResponse> insert(@Valid @RequestBody BrokerTypeRequest request) {
         LOGGER.info("Inserting broker type: {}", request);
         var response = service.insert(request);
-        var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri();
+        var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId())
+                .toUri();
         return ResponseEntity.created(uri).body(response);
     }
 
     @PutMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<BrokerTypeResponse> update(@PathVariable Long id, @Valid @RequestBody BrokerTypeRequest request) {
+    public ResponseEntity<BrokerTypeResponse> update(@PathVariable Long id,
+            @Valid @RequestBody BrokerTypeRequest request) {
         LOGGER.info("Updating broker type by id: {} {}", id, request);
         return ResponseEntity.ok(service.update(id, request));
     }

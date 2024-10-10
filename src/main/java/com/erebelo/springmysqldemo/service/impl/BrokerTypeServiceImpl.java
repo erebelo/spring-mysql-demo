@@ -5,11 +5,10 @@ import com.erebelo.springmysqldemo.domain.response.brokertype.BrokerTypeResponse
 import com.erebelo.springmysqldemo.mapper.BrokerTypeMapper;
 import com.erebelo.springmysqldemo.repository.BrokerTypeRepository;
 import com.erebelo.springmysqldemo.service.BrokerTypeService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

@@ -11,11 +11,10 @@ import com.erebelo.springmysqldemo.repository.AdvisorRepository;
 import com.erebelo.springmysqldemo.repository.BrokerRepository;
 import com.erebelo.springmysqldemo.repository.BrokerTypeRepository;
 import com.erebelo.springmysqldemo.service.BrokerService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor

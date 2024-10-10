@@ -1,18 +1,17 @@
 package com.erebelo.springmysqldemo.mapper;
 
+import static org.mapstruct.ReportingPolicy.WARN;
+
 import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerTypeEntity;
 import com.erebelo.springmysqldemo.domain.request.BrokerTypeRequest;
 import com.erebelo.springmysqldemo.domain.response.broker.BrokerLazyResponse;
 import com.erebelo.springmysqldemo.domain.response.brokertype.BrokerTypeResponse;
+import java.util.List;
+import java.util.Set;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-
-import java.util.List;
-import java.util.Set;
-
-import static org.mapstruct.ReportingPolicy.WARN;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = WARN)
 public interface BrokerTypeMapper {
@@ -21,7 +20,8 @@ public interface BrokerTypeMapper {
         return entityList.stream().map(this::lazyEntityToResponse).toList();
     }
 
-    // Lazy fetch strategy that saves additional queries by ignoring/not mapping properties
+    // Lazy fetch strategy that saves additional queries by ignoring/not mapping
+    // properties
     @Mapping(target = "brokers", ignore = true)
     BrokerTypeResponse lazyEntityToResponse(BrokerTypeEntity entity);
 
@@ -34,8 +34,6 @@ public interface BrokerTypeMapper {
 
     @Named("mapSetBrokersToListBrokers")
     default List<BrokerLazyResponse> mapSetBrokersToListBrokers(Set<BrokerEntity> brokers) {
-        return brokers.stream()
-                .map(this::mapBrokerEntityToBrokerLazyResponse)
-                .toList();
+        return brokers.stream().map(this::mapBrokerEntityToBrokerLazyResponse).toList();
     }
 }

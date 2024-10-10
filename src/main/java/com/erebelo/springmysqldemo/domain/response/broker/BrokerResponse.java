@@ -4,14 +4,13 @@ import com.erebelo.springmysqldemo.domain.response.address.AddressResponse;
 import com.erebelo.springmysqldemo.domain.response.brokertype.BrokerTypeLazyResponse;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.List;
 
 @Getter
 @Setter

@@ -4,6 +4,7 @@ import com.erebelo.springmysqldemo.domain.request.AdvisorRequest;
 import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorResponse;
 import com.erebelo.springmysqldemo.service.AdvisorService;
 import jakarta.validation.Valid;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,8 +19,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("advisor")
@@ -46,7 +45,8 @@ public class AdvisorController {
     public ResponseEntity<AdvisorResponse> insert(@Valid @RequestBody AdvisorRequest request) {
         LOGGER.info("Inserting advisor: {}", request);
         var response = service.insert(request);
-        var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri();
+        var uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId())
+                .toUri();
         return ResponseEntity.created(uri).body(response);
     }
 

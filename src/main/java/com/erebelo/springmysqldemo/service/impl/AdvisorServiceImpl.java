@@ -5,11 +5,10 @@ import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorResponse;
 import com.erebelo.springmysqldemo.mapper.AdvisorMapper;
 import com.erebelo.springmysqldemo.repository.AdvisorRepository;
 import com.erebelo.springmysqldemo.service.AdvisorService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
