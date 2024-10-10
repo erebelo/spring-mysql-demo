@@ -4,13 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
-        <relativePath/>
+        <groupId>com.erebelo</groupId>
+        <artifactId>spring-common-parent</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.erebelo</groupId>
     <artifactId>spring-mysql-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>spring-mysql-demo</name>
@@ -85,7 +83,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${project.parent.version}</version>
                 <configuration>
                     <mainClass>com.erebelo.springmysqldemo.SpringMySQLDemoApplication</mainClass>
                     <excludes>
