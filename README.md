@@ -14,6 +14,7 @@ REST API project developed in Java using Spring Boot 3 and MySQL database.
 
 ## Run App
 
+- Create a new database schema named: `mysql_demo`
 - Set the following environment variables: `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USERNAME`, and `DB_PASSWORD`.
 - Run the `SpringMySQLDemoApplication` class as Java Application.
 

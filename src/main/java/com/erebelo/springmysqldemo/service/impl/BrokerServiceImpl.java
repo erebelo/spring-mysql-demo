@@ -13,9 +13,11 @@ import com.erebelo.springmysqldemo.repository.BrokerTypeRepository;
 import com.erebelo.springmysqldemo.service.BrokerService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class BrokerServiceImpl implements BrokerService {
@@ -29,29 +31,37 @@ public class BrokerServiceImpl implements BrokerService {
     @Override
     @Transactional(readOnly = true)
     public List<BrokerResponse> findAll() {
+        log.info("Fetching all brokers");
         var entityList = brokerRepository.findAll();
+
+        log.info("{} brokers found", entityList.size());
         return mapper.entityListToResponseList(entityList);
     }
 
     @Override
     @Transactional(readOnly = true)
     public BrokerResponse findById(Long id) {
+        log.info("Fetching broker with id: {}", id);
         var entity = brokerRepository.findById(id).orElse(null);
+
+        log.info("Broker {} successfully retrieved", entity);
         return mapper.entityToResponse(entity);
     }
 
     @Override
     @Transactional
     public BrokerResponse insert(BrokerRequest request) {
-        var entity = buildEntityObject(request);
-        entity = brokerRepository.save(entity);
+        log.info("Creating broker");
+        var entity = brokerRepository.save(buildEntityObject(request));
 
+        log.info("Broker created successfully: {}", entity);
         return mapper.entityToResponse(entity);
     }
 
     @Override
     @Transactional
     public BrokerResponse update(Long id, BrokerRequest request) {
+        log.info("Updating broker with id: {}", id);
         var entity = brokerRepository.findById(id).orElse(null);
 
         if (entity != null) {
@@ -75,13 +85,17 @@ public class BrokerServiceImpl implements BrokerService {
             }
         }
 
+        log.info("Broker updated successfully: {}", entity);
         return mapper.entityToResponse(entity);
     }
 
     @Override
     @Transactional
     public void delete(Long id) {
+        log.info("Deleting broker with id: {}", id);
+
         brokerRepository.deleteById(id);
+        log.info("Broker deleted successfully");
     }
 
     private BrokerEntity buildEntityObject(BrokerRequest request) {
