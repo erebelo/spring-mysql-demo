@@ -76,13 +76,13 @@
 					"response": []
 				},
 				{
-					"name": "POST Broker",
+					"name": "POST Broker 1",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Broker One\",\r\n    \"description\": \"Description of Broker One\",\r\n    \"address\": {\r\n        \"city\": \"New York\",\r\n        \"country\": \"US\",\r\n        \"name\": \"Street 9th\",\r\n        \"state\": \"NY\",\r\n        \"zipCode\": \"12345\"\r\n    },\r\n    \"brokerTypeId\": 1,\r\n    \"relationships\": [\r\n        {\r\n            \"status\": \"Active\",\r\n            \"startDate\": \"2023-01-30\",\r\n            \"endDate\": \"2024-12-31\",\r\n            \"advisorId\": 1\r\n        },\r\n        {\r\n            \"status\": \"Pending\",\r\n            \"startDate\": \"2024-03-31\",\r\n            \"endDate\": \"2025-10-20\",\r\n            \"advisorId\": 2\r\n        }\r\n    ],\r\n    \"associatedBrokerIds\": [\r\n        2\r\n    ]\r\n}",
+							"raw": "{\r\n    \"name\": \"Broker One\",\r\n    \"description\": \"Description of Broker One\",\r\n    \"address\": {\r\n        \"city\": \"New York\",\r\n        \"country\": \"US\",\r\n        \"name\": \"Street 9th\",\r\n        \"state\": \"NY\",\r\n        \"zipCode\": \"12345\"\r\n    },\r\n    \"brokerTypeId\": 1,\r\n    \"relationships\": [\r\n        {\r\n            \"status\": \"Active\",\r\n            \"startDate\": \"2023-01-30\",\r\n            \"endDate\": \"2024-12-31\",\r\n            \"advisorId\": 1\r\n        },\r\n        {\r\n            \"status\": \"Pending\",\r\n            \"startDate\": \"2024-03-31\",\r\n            \"endDate\": \"2025-10-20\",\r\n            \"advisorId\": 2\r\n        }\r\n    ],\r\n    \"associatedBrokerIds\": []\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -105,7 +105,36 @@
 					"response": []
 				},
 				{
-					"name": "PUT Broker",
+					"name": "POST Broker 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Broker Two\",\r\n    \"description\": \"Description of Broker Two\",\r\n    \"address\": {\r\n        \"city\": \" Las Vegas\",\r\n        \"country\": \"US\",\r\n        \"name\": \"Saylor Way\",\r\n        \"state\": \"NV\",\r\n        \"zipCode\": \"98765\"\r\n    },\r\n    \"brokerTypeId\": 1,\r\n    \"relationships\": [\r\n        {\r\n            \"status\": \"Active\",\r\n            \"startDate\": \"2023-01-30\",\r\n            \"endDate\": \"2024-12-31\",\r\n            \"advisorId\": 1\r\n        }\r\n    ],\r\n    \"associatedBrokerIds\": [\r\n        1\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spring-mysql-demo",
+								"brokers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Broker by Id",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -141,7 +170,7 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Broker",
+					"name": "DELETE Broker by Id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -208,7 +237,7 @@
 					"response": []
 				},
 				{
-					"name": "POST Advisor",
+					"name": "POST Advisor 1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -237,7 +266,36 @@
 					"response": []
 				},
 				{
-					"name": "PUT Advisor",
+					"name": "POST Advisor 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joseph\",\r\n    \"status\": \"Active\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/spring-mysql-demo/advisors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"spring-mysql-demo",
+								"advisors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Advisor by Id",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -273,7 +331,7 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Advisor",
+					"name": "DELETE Advisor by Id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -372,7 +430,7 @@
 					"response": []
 				},
 				{
-					"name": "PUT Broker Type",
+					"name": "PUT Broker Type by Id",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -409,7 +467,7 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Broker Type",
+					"name": "DELETE Broker Type by Id",
 					"request": {
 						"method": "DELETE",
 						"header": [],
