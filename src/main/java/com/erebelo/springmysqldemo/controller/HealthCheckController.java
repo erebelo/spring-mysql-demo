@@ -1,22 +1,24 @@
 package com.erebelo.springmysqldemo.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("health-check")
-public class HealthCheckController {
+import static com.erebelo.springmysqldemo.constant.BusinessConstant.HEALTH_CHECK_PATH;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(HealthCheckController.class);
+@Slf4j
+@RestController
+@RequestMapping(HEALTH_CHECK_PATH)
+@Tag(name = "Health Check API")
+public class HealthCheckController {
 
     @GetMapping(produces = MediaType.TEXT_PLAIN_VALUE)
     public ResponseEntity<String> getHealthCheck() {
-        LOGGER.info("Getting health check");
+        log.info("GET {}", HEALTH_CHECK_PATH);
         return ResponseEntity.ok("Spring MySQL Demo application is up and running");
     }
 }

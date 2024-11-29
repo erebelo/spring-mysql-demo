@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "22bf3ecc-799b-4bb4-bd0e-5c72b578528c",
+		"_postman_id": "c83f13cc-cc2a-46bd-afa2-6c273765b155",
 		"name": "Spring MySQL Demo",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "3559566"
+		"_exporter_id": "16363964"
 	},
 	"item": [
 		{
@@ -32,15 +32,15 @@
 			]
 		},
 		{
-			"name": "Broker",
+			"name": "Brokers",
 			"item": [
 				{
-					"name": "GET All Brokers",
+					"name": "GET Brokers",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -48,7 +48,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker"
+								"brokers"
 							]
 						}
 					},
@@ -60,7 +60,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -68,7 +68,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker",
+								"brokers",
 								"1"
 							]
 						}
@@ -90,7 +90,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -98,14 +98,14 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker"
+								"brokers"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "PUT Broker by Id",
+					"name": "PUT Broker",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -125,7 +125,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -133,7 +133,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker",
+								"brokers",
 								"1"
 							]
 						}
@@ -141,12 +141,12 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Broker by Id",
+					"name": "DELETE Broker",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -154,7 +154,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker",
+								"brokers",
 								"1"
 							]
 						}
@@ -164,15 +164,15 @@
 			]
 		},
 		{
-			"name": "Advisor",
+			"name": "Advisors",
 			"item": [
 				{
-					"name": "GET All Advisors",
+					"name": "GET Advisors",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/advisor",
+							"raw": "http://localhost:8080/spring-mysql-demo/advisors",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -180,7 +180,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"advisor"
+								"advisors"
 							]
 						}
 					},
@@ -192,7 +192,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/advisor/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/advisors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -200,7 +200,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"advisor",
+								"advisors",
 								"1"
 							]
 						}
@@ -222,7 +222,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/advisor",
+							"raw": "http://localhost:8080/spring-mysql-demo/advisors",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -230,14 +230,14 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"advisor"
+								"advisors"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "PUT Advisor by Id",
+					"name": "PUT Advisor",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -257,7 +257,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/advisor/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/advisors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -265,7 +265,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"advisor",
+								"advisors",
 								"1"
 							]
 						}
@@ -273,12 +273,12 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Advisor by Id",
+					"name": "DELETE Advisor",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/advisor/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/advisors/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -286,7 +286,7 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"advisor",
+								"advisors",
 								"1"
 							]
 						}
@@ -296,15 +296,15 @@
 			]
 		},
 		{
-			"name": "Broker Type",
+			"name": "Broker Types",
 			"item": [
 				{
-					"name": "GET All Broker Types",
+					"name": "GET Broker Types",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker-type",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/types",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -312,7 +312,8 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker-type"
+								"brokers",
+								"types"
 							]
 						}
 					},
@@ -324,7 +325,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker-type/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/types/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -332,7 +333,8 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker-type",
+								"brokers",
+								"types",
 								"1"
 							]
 						}
@@ -354,7 +356,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker-type",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/types",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -362,14 +364,15 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker-type"
+								"brokers",
+								"types"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "PUT Broker Type by Id",
+					"name": "PUT Broker Type",
 					"request": {
 						"method": "PUT",
 						"header": [
@@ -389,7 +392,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker-type/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/types/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -397,7 +400,8 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker-type",
+								"brokers",
+								"types",
 								"1"
 							]
 						}
@@ -405,12 +409,12 @@
 					"response": []
 				},
 				{
-					"name": "DELETE Broker Type by Id",
+					"name": "DELETE Broker Type",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/spring-mysql-demo/broker-type/1",
+							"raw": "http://localhost:8080/spring-mysql-demo/brokers/types/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -418,7 +422,8 @@
 							"port": "8080",
 							"path": [
 								"spring-mysql-demo",
-								"broker-type",
+								"brokers",
+								"types",
 								"1"
 							]
 						}
