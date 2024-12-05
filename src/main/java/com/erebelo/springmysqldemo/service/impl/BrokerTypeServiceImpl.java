@@ -5,12 +5,11 @@ import com.erebelo.springmysqldemo.domain.response.brokertype.BrokerTypeResponse
 import com.erebelo.springmysqldemo.mapper.BrokerTypeMapper;
 import com.erebelo.springmysqldemo.repository.BrokerTypeRepository;
 import com.erebelo.springmysqldemo.service.BrokerTypeService;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -36,7 +35,7 @@ public class BrokerTypeServiceImpl implements BrokerTypeService {
         log.info("Fetching broker type with id: {}", id);
         var entity = repository.findById(id).orElse(null);
 
-        log.info("Broker type {} successfully retrieved", entity);
+        log.info("Broker type successfully retrieved: {}", entity);
         return mapper.entityToResponse(entity);
     }
 

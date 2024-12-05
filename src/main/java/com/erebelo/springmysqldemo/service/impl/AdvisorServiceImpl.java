@@ -35,7 +35,7 @@ public class AdvisorServiceImpl implements AdvisorService {
         log.info("Fetching advisor with id: {}", id);
         var entity = repository.findById(id).orElse(null);
 
-        log.info("Advisor {} successfully retrieved", entity);
+        log.info("Advisor successfully retrieved: {}", entity);
         return mapper.entityToResponse(entity);
     }
 

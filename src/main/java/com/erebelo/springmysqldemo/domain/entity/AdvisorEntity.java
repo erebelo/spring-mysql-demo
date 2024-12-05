@@ -17,6 +17,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Avoid using `@Data` as it generates `toString()`, `equals()`, and
+ * `hashCode()` methods that can cause circular references and lead to
+ * `StackOverflowError`.
+ */
 @Getter
 @Setter
 @Builder
@@ -44,4 +49,17 @@ public class AdvisorEntity {
     @OneToMany(mappedBy = "advisor")
     private Set<BrokerAdvisorEntity> advisorBrokers = new HashSet<>();
 
+    @Override
+    public String toString() {
+        return "AdvisorEntity{" + "id=" + id + ", name='" + name + '\'' + ", status='" + status + '\''
+                + ", advisorBrokers="
+                + advisorBrokers.stream()
+                        .map(advisorBrokers -> String.format("{BrokerAdvisorEntity{id=%d, status='%s', "
+                                + "startDate='%s', endDate='%s', BrokerEntity{id=%d, name='%s', description='%s'}}",
+                                advisorBrokers.getId(), advisorBrokers.getStatus(), advisorBrokers.getStartDate(),
+                                advisorBrokers.getEndDate(), advisorBrokers.getBroker().getId(),
+                                advisorBrokers.getBroker().getName(), advisorBrokers.getBroker().getDescription()))
+                        .toList()
+                + '}';
+    }
 }

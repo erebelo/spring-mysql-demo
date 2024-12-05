@@ -20,6 +20,11 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Avoid using `@Data` as it generates `toString()`, `equals()`, and
+ * `hashCode()` methods that can cause circular references and lead to
+ * `StackOverflowError`.
+ */
 @Getter
 @Setter
 @Builder
@@ -76,4 +81,32 @@ public class BrokerEntity {
     @ManyToMany(mappedBy = "associatedBrokers", fetch = FetchType.LAZY)
     private Set<BrokerEntity> brokersAssociatedWithMe = new HashSet<>();
 
+    @Override
+    public String toString() {
+        return "BrokerEntity{" + "id=" + id + ", name='" + name + '\'' + ", description='" + description + '\''
+                + ", address=" + address + ", brokerType="
+                + String.format("BrokerTypeEntity{id=%d, name='%s'}", brokerType.getId(), brokerType.getName())
+                + ", brokerAdvisors="
+                + brokerAdvisors.stream()
+                        .map(brokerAdvisors -> String.format(
+                                "{BrokerAdvisorEntity{id=%d, status='%s', "
+                                        + "startDate='%s', endDate='%s', AdvisorEntity{id=%d, name='%s', status='%s'}}",
+                                brokerAdvisors.getId(), brokerAdvisors.getStatus(), brokerAdvisors.getStartDate(),
+                                brokerAdvisors.getEndDate(), brokerAdvisors.getAdvisor().getId(),
+                                brokerAdvisors.getAdvisor().getName(), brokerAdvisors.getAdvisor().getStatus()))
+                        .toList()
+                + ", associatedBrokers="
+                + associatedBrokers.stream()
+                        .map(associatedBrokers -> String.format("{BrokerEntity{id=%d, name='%s', description='%s'}}",
+                                associatedBrokers.getId(), associatedBrokers.getName(),
+                                associatedBrokers.getDescription()))
+                        .toList()
+                + ", brokersAssociatedWithMe="
+                + brokersAssociatedWithMe.stream()
+                        .map(brokersAssociatedWithMe -> String.format(
+                                "{BrokerEntity{id=%d, name='%s', description='%s'}}", brokersAssociatedWithMe.getId(),
+                                brokersAssociatedWithMe.getName(), brokersAssociatedWithMe.getDescription()))
+                        .toList()
+                + '}';
+    }
 }

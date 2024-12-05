@@ -6,10 +6,17 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
+/**
+ * Avoid using `@Data` as it generates `toString()`, `equals()`, and
+ * `hashCode()` methods that can cause circular references and lead to
+ * `StackOverflowError`.
+ */
 @Getter
 @Setter
+@ToString
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor

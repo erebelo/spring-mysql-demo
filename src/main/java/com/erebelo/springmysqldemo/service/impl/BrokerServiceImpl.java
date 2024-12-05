@@ -44,7 +44,7 @@ public class BrokerServiceImpl implements BrokerService {
         log.info("Fetching broker with id: {}", id);
         var entity = brokerRepository.findById(id).orElse(null);
 
-        log.info("Broker {} successfully retrieved", entity);
+        log.info("Broker successfully retrieved: {}", entity);
         return mapper.entityToResponse(entity);
     }
 
