@@ -50,7 +50,7 @@ public class AdvisorController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<AdvisorResponse> insert(@Valid @RequestBody AdvisorRequest request) {
         log.info("POST {}", ADVISORS_PATH);
-        var response = service.insert(request);
+        AdvisorResponse response = service.insert(request);
 
         return ResponseEntity.created(
                 ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri())

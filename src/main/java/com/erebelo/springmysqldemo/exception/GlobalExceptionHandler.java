@@ -79,7 +79,7 @@ public class GlobalExceptionHandler {
         log.error("HttpRequestMethodNotSupportedException thrown:", exception);
 
         String errorMessage = exception.getMessage();
-        var supportedHttpMethods = exception.getSupportedMethods();
+        String[] supportedHttpMethods = exception.getSupportedMethods();
         if (!ObjectUtils.isEmpty(supportedHttpMethods)) {
             errorMessage += ". Supported methods: " + String.join(", ", supportedHttpMethods);
         }
@@ -102,12 +102,13 @@ public class GlobalExceptionHandler {
         return parseExceptionMessage(HttpStatus.BAD_REQUEST, errorMessage);
     }
 
+    @SuppressWarnings("ConstantConditions")
     @ExceptionHandler(TransactionSystemException.class)
     public ResponseEntity<ExceptionResponse> handleTransactionSystemException(TransactionSystemException exception) {
         log.error("TransactionSystemException thrown:", exception);
 
-        var errorMessage = "An error occurred during transaction processing";
-        var rootCause = exception.getRootCause();
+        String errorMessage = "An error occurred during transaction processing";
+        Throwable rootCause = exception.getRootCause();
         if (rootCause != null && !ObjectUtils.isEmpty(rootCause.getMessage())) {
             errorMessage += ". Root cause: " + rootCause.getMessage();
         }
@@ -161,8 +162,8 @@ public class GlobalExceptionHandler {
     }
 
     private ResponseEntity<ExceptionResponse> parseExceptionMessage(final HttpStatus httpStatus, final String message) {
-        var errorHttpStatus = ObjectUtils.isEmpty(httpStatus) ? HttpStatus.INTERNAL_SERVER_ERROR : httpStatus;
-        var errorMessage = ObjectUtils.isEmpty(message) ? "No defined message" : message;
+        HttpStatus errorHttpStatus = ObjectUtils.isEmpty(httpStatus) ? HttpStatus.INTERNAL_SERVER_ERROR : httpStatus;
+        String errorMessage = ObjectUtils.isEmpty(message) ? "No defined message" : message;
 
         return ResponseEntity.status(httpStatus)
                 .body(new ExceptionResponse(errorHttpStatus, errorMessage, System.currentTimeMillis()));

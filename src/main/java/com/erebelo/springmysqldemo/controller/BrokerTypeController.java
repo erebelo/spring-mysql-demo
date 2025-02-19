@@ -50,7 +50,7 @@ public class BrokerTypeController {
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<BrokerTypeResponse> insert(@Valid @RequestBody BrokerTypeRequest request) {
         log.info("POST {}", BROKER_TYPES_PATH);
-        var response = service.insert(request);
+        BrokerTypeResponse response = service.insert(request);
 
         return ResponseEntity.created(
                 ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(response.getId()).toUri())

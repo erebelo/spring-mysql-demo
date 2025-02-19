@@ -1,6 +1,7 @@
 package com.erebelo.springmysqldemo.service.impl;
 
 import com.erebelo.springmysqldemo.domain.entity.AddressEntity;
+import com.erebelo.springmysqldemo.domain.entity.BrokerAdvisorEntity;
 import com.erebelo.springmysqldemo.domain.entity.BrokerEntity;
 import com.erebelo.springmysqldemo.domain.request.BrokerRequest;
 import com.erebelo.springmysqldemo.domain.request.RelationshipRequest;
@@ -32,7 +33,7 @@ public class BrokerServiceImpl implements BrokerService {
     @Transactional(readOnly = true)
     public List<BrokerResponse> findAll() {
         log.info("Fetching all brokers");
-        var entityList = brokerRepository.findAll();
+        List<BrokerEntity> entityList = brokerRepository.findAll();
 
         log.info("{} brokers found", entityList.size());
         return mapper.entityListToResponseList(entityList);
@@ -42,7 +43,7 @@ public class BrokerServiceImpl implements BrokerService {
     @Transactional(readOnly = true)
     public BrokerResponse findById(Long id) {
         log.info("Fetching broker with id: {}", id);
-        var entity = brokerRepository.findById(id).orElse(null);
+        BrokerEntity entity = brokerRepository.findById(id).orElse(null);
 
         log.info("Broker successfully retrieved: {}", entity);
         return mapper.entityToResponse(entity);
@@ -52,7 +53,7 @@ public class BrokerServiceImpl implements BrokerService {
     @Transactional
     public BrokerResponse insert(BrokerRequest request) {
         log.info("Creating broker");
-        var entity = brokerRepository.save(buildEntityObject(request));
+        BrokerEntity entity = brokerRepository.save(buildEntityObject(request));
 
         log.info("Broker created successfully: {}", entity);
         return mapper.entityToResponse(entity);
@@ -62,10 +63,10 @@ public class BrokerServiceImpl implements BrokerService {
     @Transactional
     public BrokerResponse update(Long id, BrokerRequest request) {
         log.info("Updating broker with id: {}", id);
-        var entity = brokerRepository.findById(id).orElse(null);
+        BrokerEntity entity = brokerRepository.findById(id).orElse(null);
 
         if (entity != null) {
-            var updatedEntity = buildEntityObject(request);
+            BrokerEntity updatedEntity = buildEntityObject(request);
             updatedEntity.setId(id);
 
             AddressEntity addressToDelete = null;
@@ -99,14 +100,15 @@ public class BrokerServiceImpl implements BrokerService {
     }
 
     private BrokerEntity buildEntityObject(BrokerRequest request) {
-        var brokerEntity = mapper.requestToEntity(request);
+        BrokerEntity brokerEntity = mapper.requestToEntity(request);
 
         // Handle BrokerType
         brokerEntity.setBrokerType(brokerTypeRepository.findById(request.getBrokerTypeId()).orElse(null));
 
         // Handle BrokerAdvisor
         for (RelationshipRequest relationshipRequest : request.getRelationships()) {
-            var brokerAdvisorEntity = mapper.mapRelationshipRequestToBrokerAdvisorEntity(relationshipRequest);
+            BrokerAdvisorEntity brokerAdvisorEntity = mapper
+                    .mapRelationshipRequestToBrokerAdvisorEntity(relationshipRequest);
             brokerAdvisorEntity.setAdvisor(advisorRepository.findById(relationshipRequest.getAdvisorId()).orElse(null));
             brokerAdvisorEntity.setBroker(brokerEntity);
 

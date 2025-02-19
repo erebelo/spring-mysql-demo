@@ -1,11 +1,14 @@
 package com.erebelo.springmysqldemo.service.impl;
 
+import com.erebelo.springmysqldemo.domain.entity.AdvisorEntity;
+import com.erebelo.springmysqldemo.domain.entity.BrokerAdvisorEntity;
 import com.erebelo.springmysqldemo.domain.request.AdvisorRequest;
 import com.erebelo.springmysqldemo.domain.response.advisor.AdvisorResponse;
 import com.erebelo.springmysqldemo.mapper.AdvisorMapper;
 import com.erebelo.springmysqldemo.repository.AdvisorRepository;
 import com.erebelo.springmysqldemo.service.AdvisorService;
 import java.util.List;
+import java.util.Set;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -23,7 +26,7 @@ public class AdvisorServiceImpl implements AdvisorService {
     @Transactional(readOnly = true)
     public List<AdvisorResponse> findAll() {
         log.info("Fetching all advisors");
-        var entityList = repository.findAll();
+        List<AdvisorEntity> entityList = repository.findAll();
 
         log.info("{} advisors found", entityList.size());
         return mapper.entityListToResponseList(entityList);
@@ -33,7 +36,7 @@ public class AdvisorServiceImpl implements AdvisorService {
     @Transactional(readOnly = true)
     public AdvisorResponse findById(Long id) {
         log.info("Fetching advisor with id: {}", id);
-        var entity = repository.findById(id).orElse(null);
+        AdvisorEntity entity = repository.findById(id).orElse(null);
 
         log.info("Advisor successfully retrieved: {}", entity);
         return mapper.entityToResponse(entity);
@@ -43,7 +46,7 @@ public class AdvisorServiceImpl implements AdvisorService {
     @Transactional
     public AdvisorResponse insert(AdvisorRequest request) {
         log.info("Creating advisor");
-        var entity = repository.save(mapper.requestToEntity(request));
+        AdvisorEntity entity = repository.save(mapper.requestToEntity(request));
 
         log.info("Advisor created successfully: {}", entity);
         return mapper.lazyEntityToResponse(entity);
@@ -53,13 +56,13 @@ public class AdvisorServiceImpl implements AdvisorService {
     @Transactional
     public AdvisorResponse update(Long id, AdvisorRequest request) {
         log.info("Updating advisor with id: {}", id);
-        var entity = repository.findById(id).orElse(null);
+        AdvisorEntity entity = repository.findById(id).orElse(null);
 
         if (entity != null) {
-            var relationships = entity.getAdvisorBrokers();
+            Set<BrokerAdvisorEntity> relationships = entity.getAdvisorBrokers();
 
             if (relationships == null || relationships.isEmpty()) {
-                var updatedEntity = mapper.requestToEntity(request);
+                AdvisorEntity updatedEntity = mapper.requestToEntity(request);
                 updatedEntity.setId(id);
 
                 entity = repository.save(updatedEntity);

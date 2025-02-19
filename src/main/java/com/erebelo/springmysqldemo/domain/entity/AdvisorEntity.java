@@ -54,11 +54,11 @@ public class AdvisorEntity {
         return "AdvisorEntity{" + "id=" + id + ", name='" + name + '\'' + ", status='" + status + '\''
                 + ", advisorBrokers="
                 + advisorBrokers.stream()
-                        .map(advisorBrokers -> String.format("{BrokerAdvisorEntity{id=%d, status='%s', "
+                        .map(brokerAdvisor -> String.format("{BrokerAdvisorEntity{id=%d, status='%s', "
                                 + "startDate='%s', endDate='%s', BrokerEntity{id=%d, name='%s', description='%s'}}",
-                                advisorBrokers.getId(), advisorBrokers.getStatus(), advisorBrokers.getStartDate(),
-                                advisorBrokers.getEndDate(), advisorBrokers.getBroker().getId(),
-                                advisorBrokers.getBroker().getName(), advisorBrokers.getBroker().getDescription()))
+                                brokerAdvisor.getId(), brokerAdvisor.getStatus(), brokerAdvisor.getStartDate(),
+                                brokerAdvisor.getEndDate(), brokerAdvisor.getBroker().getId(),
+                                brokerAdvisor.getBroker().getName(), brokerAdvisor.getBroker().getDescription()))
                         .toList()
                 + '}';
     }
